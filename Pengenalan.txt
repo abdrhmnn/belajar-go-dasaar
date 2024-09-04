@@ -1,0 +1,16 @@
+bahasa Go dibuat dari bahasa C oleh Google
+
+Go popular dalam pembuatan backend API yang microservices
+
+file Go nanti akan di compile yang bisa berjalan di berbagai sistem operasi sesuai pilihan (binary file)
+
+project di bahasa Go itu disebut `Module`
+bisa dibuat dgn perintah `go mod init nama-module`
+
+setiap module Go itu harus ada package main yang isinya fungsi main untuk menjalankan aplikasi kita
+tidak boleh ada duplikat func main
+
+untuk nge compile file Go, jalankan `go build` maka Go akan mencari fungsi `main` yg ada di module trs
+akan di compile sesuai dengan sistem operasi yang dipakai (dlm bentuk exe ekstention)
+
+untuk run local file go, `go run nama-file.go`
