@@ -60,3 +60,26 @@ func sayHello3(elemen ...any) {
 func sayHello4(nama interface{}) {
 	fmt.Println(nama)
 }
+
+// type assertions
+// yaitu mengubah tipe data menjadi tipe data yg diinginkan
+// biasanya dipakai untuk konversi dari interface {}
+// jika salah konversi type assertion maka program akan panic
+// untuk itu cara baiknya menggunakan switch
+type Abdu interface {
+	Nama() string
+}
+
+func sayHelloAbdu() interface{} {
+	return "OK"
+}
+
+func checkType() {
+	var data any = sayHelloAbdu()
+	switch value := data.(type) {
+	case string:
+		fmt.Println("string", value)
+	case int:
+		fmt.Println("string", value)
+	}
+}
