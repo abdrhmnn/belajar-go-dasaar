@@ -93,3 +93,42 @@ type Filter func(string) string
 func sayHello8(nama string, filter Filter) {
 	fmt.Println("Hai ", nama, filter(nama))
 }
+
+// Defer, Panic dan Recover
+// Defer adalah func yang berjalan setelah sebuah func telah selesai di eksekusi
+// fungsi defer akan selalu dijalankan walaupun func sebelumnya itu menghasilkan error
+func logging() {
+	fmt.Println("defer berjalan")
+}
+
+func runLogging() {
+	defer logging()
+	fmt.Println("run logging berjalan!")
+}
+
+// Panic adalah func yang digunakan untuk menghentikan program secara total
+// saat panic dijalankan maka program akan berhenti tetapi jika ada defer func maka func defer tetap dijalankan
+func runLogging2(status string) {
+	defer logging()
+	if status == "error" {
+		panic("ERROR")
+	}
+	fmt.Println("run logging 2 berjalan!")
+}
+
+// Recover adalah func yang digunakan untuk menangkap data panic
+// jadi jika terjadi panic, program bisa diatur untuk tidak langsung berhenti dulu
+// dengan mengecek data panic nya kenapa dengan fungsi Recover
+// selalu gunakan func recover sebelum func panic nya berjalan
+func logging2() {
+	fmt.Println("defer berjalan")
+	msg := recover()
+	fmt.Println("Terjadi error panic dengan pesan: ", msg)
+}
+
+func runLogging3(status string) {
+	defer logging()
+	if status == "error" {
+		panic("ERROR")
+	}
+}

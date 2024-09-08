@@ -14,3 +14,5 @@ untuk nge compile file Go, jalankan `go build` maka Go akan mencari fungsi `main
 akan di compile sesuai dengan sistem operasi yang dipakai (dlm bentuk exe ekstention)
 
 untuk run local file go, `go run nama-file.go`
+
+Go bukan bahasa yang implementasi paradigma OOP
