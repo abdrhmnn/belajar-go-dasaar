@@ -47,8 +47,30 @@ func main() {
 	customer7.Nama = "Customer baru"
 	fmt.Println("customer 6", customer6)
 	fmt.Println("customer 7", customer7)
+
+	// pointer as param value
+	sayHello(&customer3)
+
+	// pointer in method
+	abdu := Abdu{"abdu"}
+	abdu.sayHello2()
+	fmt.Println(abdu.Nama)
 }
 
 type Customer struct {
 	Nama, Umur, Alamat string
+}
+
+type Abdu struct {
+	Nama string
+}
+
+// pointer as parameter function
+func sayHello(customer *Customer) {
+	customer.Nama = "eunha"
+}
+
+// pointer in method
+func (abdu *Abdu) sayHello2() {
+	abdu.Nama = "Mr. " + abdu.Nama
 }
